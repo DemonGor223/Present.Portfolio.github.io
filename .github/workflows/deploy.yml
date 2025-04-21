@@ -37,3 +37,41 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+
+## **¿Qué hacer ahora?**
+
+1. **Agrega el archivo `.nojekyll`** a la carpeta que subes a GitHub Pages.
+2. **Asegúrate de que tu workflow de GitHub Actions** (si usas uno) construya el sitio con Astro y suba el contenido de `dist` al branch de GitHub Pages.
+3. **No uses la acción de Jekyll** (`actions/jekyll-build-pages@v1`).  
+     a una acción para sitios estáticos, como [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages).
+
+---
+
+### Ejemplo de workflow para Astro + GitHub Pages
+```yaml
+name: Deploy Astro site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+```
