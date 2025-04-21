@@ -1,0 +1,95 @@
+---
+interface BlogPost {
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string | string[];
+}
+
+const recentPosts: BlogPost[] = [
+  {
+    title: "Página web de Trabajo Remoto",
+    excerpt: "Aprende como puedes unirte y hacer tu trabajo de forma remota...",
+    date: "8/02/2024",
+    readTime: "Tiempo estimado de desarrollo: 4 meses",
+    category: ["Desarrollo Web", "HTML","CSS","JavaScript","PHP", "MySQL"],
+  },
+  {
+    title: "Propuesta de CRM (Customer Relationship Management ó Gestion de Relaciones con los Clientes)",
+    excerpt: "Sistema de gestión de relaciones con clientes",
+    date: "8/02/2025",
+    readTime: "Tiempo estimado de desarrollo: 4 meses",
+    category: ["Desarrollo Web", "HTML","CSS","JavaScript","Django", "MySQL", "Python"],
+  },
+  {
+    title: "Conversor de Unidades",
+    excerpt: "Interesante sistema de conversion de unidades, de la categoria que escojas, con valor de tiempo actual...",
+    date: "10/02/2023",
+    readTime: "Tiempo estimado de desarollo: 3 dias",
+    category: "C++"
+  },
+  {
+    title: "Caja Registradora",
+    excerpt: "Sistema de punto de venta con interfaz intuitiva para gestionar transacciones comerciales...",
+    date: "20/08/2024",
+    readTime: "Tiempo estimado de desarrollo: 10 dias",
+    category: "Java"
+  },
+  {
+    title: "Gestor de Inventario",
+    excerpt: "Aplicación robusta desarrollada en Python para administrar inventarios empresariales...",
+    date: "4/05/2023",
+    readTime: "Tiempo estimado de desarrollo: 3 y 4 dias",
+    category: "Python"
+  },
+  {
+    title: "Base de Datos de Biblioteca",
+    excerpt: "Sistema completo para gestión bibliotecaria desarrollado con Python y Django...",
+    date: "8/09/2024",
+    readTime: "Tiempo estimado de desarrollo: 5 dias",
+    category: "Python/Django"
+  }
+];
+---
+
+<div class="bg-white/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl">
+  <div class="md:flex justify-between items-center mb-6">
+    <h3 class="text-2xl font-semibold text-blue-900">Publicaciones recientes</h3>
+    <a href="/blog" class="text-blue-600 hover:text-blue-800 transition-colors text-sm">Ver todas la Publicaciones →</a>
+  </div>
+  <div class="space-y-6">
+    {recentPosts.map((post) => (
+      <article class="group">
+        <a href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`} class="block p-4 rounded-2xl hover:bg-blue-50/50 transition-all duration-300">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+            <div class="flex flex-wrap gap-2">
+              {Array.isArray(post.category) ? (
+                post.category.map(cat => (
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">
+                    {cat}
+                  </span>
+                ))
+              ) : (
+                <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">
+                  {post.category}
+                </span>
+              )}
+            </div>
+            <div class="flex items-center gap-2 text-blue-400 text-sm">
+              <span>{post.date}</span>
+              <span>•</span>
+              <span>{post.readTime} read</span>
+            </div>
+          </div>
+          <h4 class="text-lg font-medium text-blue-900 mb-2 group-hover:text-blue-600 transition-colors">
+            {post.title}
+          </h4>
+          <p class="text-blue-600/80 text-sm line-clamp-2">
+            {post.excerpt}
+          </p>
+        </a>
+      </article>
+    ))}
+  </div>
+</div>

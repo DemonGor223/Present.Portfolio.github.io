@@ -1,0 +1,39 @@
+---
+import Scene3D from './Scene3D';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <Scene3D client:load />
+  </div>
+  
+  <div class="container mx-auto px-4 z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="flex flex-col items-center mb-8 animate-fade-in">
+        <div class="w-48 h-48 rounded-full border-4 border-white/50 shadow-xl mb-6 overflow-hidden bg-gradient-to-br from-blue-100 to-blue-50 transition-transform hover:scale-105">
+          <img
+            src="../assets/IMG_20250409_15436041.jpg"
+            alt="Juan Sebastian Buitrago Perdomo"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <h1 class="text-6xl font-bold mb-2">Juan Sebastian Buitrago Perdomo</h1>
+        <h2 class="text-3xl text-apple-gray-400 mb-6">Programador y Desarrollador de Software</h2>
+      </div>
+      <p class="text-xl text-apple-gray-500 mb-8 animate-slide-up">
+        Construyendo soluciones elegantes a problemas complejos con pasión y creatividad.
+      </p>
+      <div class="flex gap-4 justify-center animate-slide-up" style="animation-delay: 200ms;">
+        <a href="/projects" class="bg-apple-gray-500 text-white px-6 py-3 rounded-full hover:bg-apple-gray-400 transition-colors">
+          Mis Proyectos
+        </a>
+        <a href="#contact" class="border border-apple-gray-500 px-6 py-3 rounded-full hover:bg-apple-gray-100 transition-colors">
+          Contáctame
+        </a>
+        <a href="https://github.com/DemonGor223" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors">
+          Dame una estrella en GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

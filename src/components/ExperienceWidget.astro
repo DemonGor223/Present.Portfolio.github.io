@@ -1,0 +1,110 @@
+---
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string[];
+  technologies: string[];
+}
+
+interface Education {
+  degree: string;
+  school: string;
+  period: string;
+  achievements: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Fundamentos esenciales de la programación",
+    company: "Linkedin Learning",
+    period: "Mayo 20 - Junio 20 de 2024",
+    description: [
+      "Desarrollo de habilidades en programación utilizando Python, JavaScript y Java.",
+      "Aprendizaje de metodologías ágiles y herramientas de desarrollo.",
+      "Desarrollo de habilidades en la resolución de problemas.",
+    ],
+    technologies: ["Python", "Node.js", "Javascript", "Java"]
+  },
+  {
+    title: "Fundamentos de la industria y desarrollo de videojuegos",
+    company: "Huawei, Yodo 1, Ugames Studios",
+    period: " Octubre 1 - Noviembre 25 de 2022",
+    description: [
+      "Diseño y desarrollo de videojuegos utilizando Unity , C++ y C#.",
+      "Programacion orientada a objetos y patrones de diseño.",
+    ],
+    technologies: ["Unity Engine", "C#", "C++"]
+  }
+];
+
+const education: Education[] = [
+
+  {
+    degree: "Bachiller Academico",
+    school: "Colegio Santa Teresa de Soacha",
+    period: "2015 - 2022",
+    achievements: [
+      "Complete satisfactoriamente mi bachillerato.",
+      "Con conocimientos en programacion en Java y desarrollo de videojuegos básicos.",
+    ]
+  }
+];
+---
+
+<div class="space-y-8">
+  <div class="bg-white/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl">
+    <h3 class="text-2xl font-semibold mb-6">Experiencia Laboral</h3>
+    <div class="space-y-6">
+      {experiences.map((exp) => (
+        <div class="border-l-2 border-blue-500 pl-4 pb-6">
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-2 mb-4">
+            <div>
+              <h4 class="text-xl font-medium text-apple-gray-500">{exp.title}</h4>
+              <p class="text-apple-gray-400">{exp.company}</p>
+            </div>
+            <span class="text-sm text-apple-gray-300 bg-apple-gray-100 px-3 py-1 rounded-full whitespace-nowrap">
+              {exp.period}
+            </span>
+          </div>
+          <ul class="list-disc list-inside text-apple-gray-400 mb-3 space-y-1">
+            {exp.description.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            {exp.technologies.map((tech) => (
+              <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="bg-white/80 backdrop-blur-lg rounded-3xl p-6 shadow-xl">
+    <h3 class="text-2xl font-semibold mb-6">Educación</h3>
+    <div class="space-y-6">
+      {education.map((edu) => (
+        <div class="border-l-2 border-blue-500 pl-4 pb-6">
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-2 mb-4">
+            <div>
+              <h4 class="text-xl font-medium text-apple-gray-500">{edu.degree}</h4>
+              <p class="text-apple-gray-400">{edu.school}</p>
+            </div>
+            <span class="text-sm text-apple-gray-300 bg-apple-gray-100 px-3 py-1 rounded-full whitespace-nowrap">
+              {edu.period}
+            </span>
+          </div>
+          <ul class="list-disc list-inside text-apple-gray-400 space-y-1">
+            {edu.achievements.map((achievement) => (
+              <li>{achievement}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
