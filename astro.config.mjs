@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://Demongor.github.io',
+  site: 'https://Present.Portfolio.github.io',
   integrations: [tailwind(), react()],
 });
